@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def create
-    byebug
     if params[:user][:password] == params[:user][:password_confirmation]
       @u = User.create(user_params)
       session[:user_id] = @u.id

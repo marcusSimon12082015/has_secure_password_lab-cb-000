@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    byebug
     if params[:user][:password] && !params[:user][:name].empty? &&
       !User.find_by(name:params[:user][:name]).nil?
       @user = User.find_by(name:params[:user][:name])

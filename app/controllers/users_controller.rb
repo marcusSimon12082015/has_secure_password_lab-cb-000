@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   def create
-    if !(params[:password].eql? params[:password_confirmation])
+    if params[:password].eql? params[:password_confirmation]
+      User.create(user_params)
+    else
       redirect_to(controller:'users',action:'new')
     end
-    User.create(user_params)
   end
 
   def new

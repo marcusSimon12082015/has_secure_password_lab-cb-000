@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def create
+    byebug
     if params[:password] == params[:password_confirmation]
       User.create(user_params)
     else

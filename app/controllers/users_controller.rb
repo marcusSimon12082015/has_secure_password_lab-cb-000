@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   def create
     byebug
     if params[:user][:password] == params[:user][:password_confirmation]
-      User.create(user_params)
+      @u = User.create(user_params)
+      session[:user_id] = @u.id
     else
       redirect_to(controller:'users',action:'new')
     end
